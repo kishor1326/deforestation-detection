@@ -1,0 +1,31 @@
+.alert-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.severity-critical {
+  background: rgba(255, 23, 68, 0.15);
+  color: var(--color-severity-critical);
+  border: 1px solid rgba(255, 23, 68, 0.3);
+  animation: pulse 2s infinite;
+}
+.severity-high {
+  background: rgba(255, 109, 0, 0.15);
+  color: var(--color-severity-high);
+  border: 1px solid rgba(255, 109, 0, 0.3);
+}
+.severity-medium {
+  background: rgba(255, 171, 0, 0.15);
+  color: var(--color-severity-medium);
+  border: 1px solid rgba(255, 171, 0, 0.3);
+}
+.severity-low {
+  background: rgba(0, 230, 118, 0.15);
+  color: var(--color-severity-low);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+}

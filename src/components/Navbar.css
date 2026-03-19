@@ -1,0 +1,197 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: rgba(10, 15, 13, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-lg);
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.menu-toggle:hover {
+  background: var(--color-bg-glass);
+}
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text-secondary);
+  border-radius: 1px;
+  transition: all var(--transition-normal);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+}
+.brand-icon {
+  color: var(--color-green-primary);
+  filter: drop-shadow(0 0 8px var(--color-green-glow));
+}
+.brand-text {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-green-light), var(--color-green-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 480px;
+  margin: 0 var(--space-xl);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 8px 16px;
+  width: 100%;
+  transition: all var(--transition-normal);
+}
+.search-bar:focus-within {
+  border-color: var(--color-green-primary);
+  box-shadow: 0 0 12px rgba(0, 200, 83, 0.1);
+}
+.search-bar svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+.search-bar input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  width: 100%;
+}
+.search-bar input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.nav-icon-btn {
+  position: relative;
+  background: none;
+  color: var(--color-text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.nav-icon-btn:hover {
+  background: var(--color-bg-glass);
+  color: var(--color-green-primary);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--color-severity-critical);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 6px 12px;
+  border-radius: var(--radius-xl);
+  cursor: default;
+}
+.avatar {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--color-green-primary), var(--color-green-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  text-align: left;
+  padding: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.logout-btn:hover {
+  color: #ff5252;
+  text-decoration: underline;
+}
+
+.navbar-right .nav-icon-btn:first-child {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-center { display: none; }
+  .navbar-right .nav-icon-btn:first-child { display: flex; }
+  .profile-info { display: none; }
+}

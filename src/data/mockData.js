@@ -1,0 +1,215 @@
+// Mock data for the Deforestation Detection System
+
+export const kpiStats = [
+  { id: 1, label: 'Total Area Monitored', value: '2.4M km²', trend: '+12%', trendUp: true, icon: 'globe' },
+  { id: 2, label: 'Alerts Today', value: '47', trend: '+8', trendUp: false, icon: 'alert' },
+  { id: 3, label: 'Forests At Risk', value: '1,283', trend: '-3%', trendUp: true, icon: 'trees' },
+  { id: 4, label: 'Avg Response Time', value: '2.4 hrs', trend: '-18%', trendUp: true, icon: 'clock' },
+];
+
+export const alerts = [
+  { id: 'ALT-8931', region: 'Amazon Basin, Brazil', lat: -3.4653, lng: -62.2159, severity: 'critical', area: '45.2 ha', confidence: 97, timestamp: new Date().setHours(new Date().getHours() - 1), status: 'investigating', description: 'Rapid canopy loss detected via SAR imagery. High probability of illegal logging road construction.' },
+  { id: 'ALT-8934', region: 'Kruger National Park, SA', lat: -23.9884, lng: 31.5547, severity: 'critical', area: 'Point Source', confidence: 98, timestamp: new Date().setMinutes(new Date().getMinutes() - 15), status: 'active', description: 'Acoustic sensor SNSR-291 detected dual gunshots. Suspicious vehicle engine sound correlated 2km away.' },
+  { id: 'ALT-8935', region: 'Congo Basin, DRC', lat: 1.3411, lng: 23.4560, severity: 'high', area: 'Point Source', confidence: 92, timestamp: new Date().setMinutes(new Date().getMinutes() - 45), status: 'active', description: 'Drone thermal camera identified unauthorized human encampment in protected gorilla sector.' },
+  { id: 'ALT-004', region: 'Sumatra, Indonesia', lat: 0.5, lng: 101.5, severity: 'medium', area: '12.6 ha', confidence: 85, timestamp: new Date().setHours(new Date().getHours() - 5), status: 'acknowledged', description: 'Moderate clearing activity in buffer zone. Monitoring for escalation.' },
+  { id: 'ALT-005', region: 'Mato Grosso, Brazil', lat: -12.0, lng: -54.0, severity: 'critical', area: '67.3 ha', confidence: 96, timestamp: new Date().setHours(new Date().getHours() - 12), status: 'active', description: 'Massive deforestation front advancing. Fire signatures detected.' },
+  { id: 'ALT-006', region: 'Rondônia, Brazil', lat: -10.9, lng: -62.8, severity: 'medium', area: '8.4 ha', confidence: 78, timestamp: new Date().setHours(new Date().getHours() - 18), status: 'resolved', description: 'Small clearing detected. Possibly authorized agricultural expansion.' },
+  { id: 'ALT-007', region: 'Papua New Guinea', lat: -5.5, lng: 145.0, severity: 'low', area: '5.1 ha', confidence: 72, timestamp: new Date().setHours(new Date().getHours() - 20), status: 'resolved', description: 'Minor forest disturbance detected. Natural causes suspected.' },
+  { id: 'ALT-008', region: 'Cameroon', lat: 5.0, lng: 10.0, severity: 'high', area: '19.7 ha', confidence: 91, timestamp: new Date().setHours(new Date().getHours() - 24), status: 'active', description: 'Illegal logging activity detected in protected zone.' },
+  { id: 'ALT-009', region: 'Madagascar', lat: -18.9, lng: 47.5, severity: 'medium', area: '14.2 ha', confidence: 83, timestamp: new Date().setHours(new Date().getHours() - 36), status: 'investigating', description: 'Slash and burn agriculture expanding into rainforest corridor.' },
+  { id: 'ALT-010', region: 'Kalimantan, Indonesia', lat: -0.5, lng: 115.0, severity: 'critical', area: '52.8 ha', confidence: 95, timestamp: new Date().setHours(new Date().getHours() - 48), status: 'active', description: 'Large-scale illegal clearing detected. Multiple bulldozer tracks visible in imagery.' },
+  // India Alerts
+  { id: 'ALT-IN-001', region: 'Western Ghats, India', lat: 11.35, lng: 76.55, severity: 'critical', area: '38.5 ha', confidence: 94, timestamp: new Date().setHours(new Date().getHours() - 2), status: 'active', description: 'Illegal encroachment detected in Nilgiri Biosphere Reserve. Heavy machinery tracks visible in satellite imagery near Mudumalai Tiger Reserve.' },
+  { id: 'ALT-IN-002', region: 'Northeast India, Assam', lat: 26.20, lng: 92.94, severity: 'high', area: '22.4 ha', confidence: 90, timestamp: new Date().setHours(new Date().getHours() - 4), status: 'investigating', description: 'Rapid canopy loss in Kaziranga buffer zone. Suspected illegal logging for tea plantation expansion.' },
+  { id: 'ALT-IN-003', region: 'Central India, Madhya Pradesh', lat: 22.95, lng: 80.15, severity: 'high', area: '31.2 ha', confidence: 88, timestamp: new Date().setHours(new Date().getHours() - 8), status: 'active', description: 'Forest clearing detected near Panna Tiger Reserve. Road construction fragmenting wildlife corridor.' },
+  { id: 'ALT-IN-004', region: 'Sundarbans, West Bengal', lat: 21.95, lng: 88.90, severity: 'critical', area: '15.8 ha', confidence: 93, timestamp: new Date().setHours(new Date().getHours() - 6), status: 'active', description: 'Mangrove destruction in Sundarbans delta. Illegal shrimp farming expanding into protected mangrove forest.' },
+  { id: 'ALT-IN-005', region: 'Western Ghats, Karnataka', lat: 12.82, lng: 75.42, severity: 'medium', area: '18.6 ha', confidence: 82, timestamp: new Date().setHours(new Date().getHours() - 14), status: 'acknowledged', description: 'Mining activity encroaching on biodiversity hotspot in Kudremukh National Park region.' },
+  { id: 'ALT-IN-006', region: 'Northeast India, Meghalaya', lat: 25.47, lng: 91.36, severity: 'medium', area: '11.3 ha', confidence: 79, timestamp: new Date().setHours(new Date().getHours() - 22), status: 'investigating', description: 'Jhum (shifting cultivation) expanding into sacred grove forests in Khasi Hills.' },
+];
+
+export const timeSeriesData = [
+  { month: 'Jan 2025', forestCover: 5820000, deforestationRate: 3200, alertsCount: 312 },
+  { month: 'Feb 2025', forestCover: 5816800, deforestationRate: 2900, alertsCount: 287 },
+  { month: 'Mar 2025', forestCover: 5813900, deforestationRate: 3500, alertsCount: 345 },
+  { month: 'Apr 2025', forestCover: 5810400, deforestationRate: 4100, alertsCount: 402 },
+  { month: 'May 2025', forestCover: 5806300, deforestationRate: 4800, alertsCount: 478 },
+  { month: 'Jun 2025', forestCover: 5801500, deforestationRate: 5200, alertsCount: 523 },
+  { month: 'Jul 2025', forestCover: 5796300, deforestationRate: 6100, alertsCount: 612 },
+  { month: 'Aug 2025', forestCover: 5790200, deforestationRate: 7200, alertsCount: 698 },
+  { month: 'Sep 2025', forestCover: 5783000, deforestationRate: 5800, alertsCount: 567 },
+  { month: 'Oct 2025', forestCover: 5777200, deforestationRate: 4500, alertsCount: 445 },
+  { month: 'Nov 2025', forestCover: 5772700, deforestationRate: 3800, alertsCount: 378 },
+  { month: 'Dec 2025', forestCover: 5768900, deforestationRate: 3100, alertsCount: 310 },
+  { month: 'Jan 2026', forestCover: 5765800, deforestationRate: 2800, alertsCount: 280 },
+  { month: 'Feb 2026', forestCover: 5763000, deforestationRate: 3400, alertsCount: 340 },
+  { month: 'Mar 2026', forestCover: 5759600, deforestationRate: 3900, alertsCount: 395 },
+];
+
+export const regions = [
+  { id: 'amazon', name: 'Amazon Basin', country: 'Brazil', area: '5.5M km²', forestCover: 82, riskLevel: 'critical', lat: -3.4653, lng: -62.2159 },
+  { id: 'congo', name: 'Congo Basin', country: 'DRC', area: '2.0M km²', forestCover: 88, riskLevel: 'high', lat: -1.5, lng: 23.5 },
+  { id: 'borneo', name: 'Borneo', country: 'Indonesia/Malaysia', area: '743K km²', forestCover: 55, riskLevel: 'critical', lat: 1.5, lng: 110.0 },
+  { id: 'sumatra', name: 'Sumatra', country: 'Indonesia', area: '473K km²', forestCover: 45, riskLevel: 'high', lat: 0.5, lng: 101.5 },
+  { id: 'mato_grosso', name: 'Mato Grosso', country: 'Brazil', area: '903K km²', forestCover: 62, riskLevel: 'critical', lat: -12.0, lng: -54.0 },
+  { id: 'papua', name: 'Papua New Guinea', country: 'Papua New Guinea', area: '462K km²', forestCover: 74, riskLevel: 'medium', lat: -5.5, lng: 145.0 },
+  { id: 'madagascar', name: 'Madagascar', country: 'Madagascar', area: '587K km²', forestCover: 22, riskLevel: 'high', lat: -18.9, lng: 47.5 },
+  { id: 'cameroon', name: 'Cameroon Forests', country: 'Cameroon', area: '238K km²', forestCover: 41, riskLevel: 'medium', lat: 5.0, lng: 10.0 },
+  // India Regions
+  { id: 'western_ghats', name: 'Western Ghats', country: 'India', area: '160K km²', forestCover: 34, riskLevel: 'critical', lat: 11.35, lng: 76.55 },
+  { id: 'northeast_india', name: 'Northeast India', country: 'India', area: '262K km²', forestCover: 65, riskLevel: 'high', lat: 26.20, lng: 92.94 },
+  { id: 'central_india', name: 'Central Indian Forests', country: 'India', area: '308K km²', forestCover: 42, riskLevel: 'high', lat: 22.95, lng: 80.15 },
+  { id: 'sundarbans', name: 'Sundarbans', country: 'India/Bangladesh', area: '10K km²', forestCover: 48, riskLevel: 'critical', lat: 21.95, lng: 88.90 },
+];
+
+export const heatmapData = [
+  { date: '2026-01-05', count: 3 }, { date: '2026-01-12', count: 5 }, { date: '2026-01-18', count: 2 },
+  { date: '2026-01-25', count: 7 }, { date: '2026-02-02', count: 4 }, { date: '2026-02-08', count: 6 },
+  { date: '2026-02-14', count: 8 }, { date: '2026-02-20', count: 3 }, { date: '2026-02-27', count: 9 },
+  { date: '2026-03-01', count: 5 }, { date: '2026-03-05', count: 11 }, { date: '2026-03-08', count: 7 },
+  { date: '2026-03-10', count: 4 },
+];
+
+export const regionComparisonData = [
+  { region: 'Amazon', current: 4500, previous: 3200, change: 40.6 },
+  { region: 'Congo', current: 1800, previous: 1500, change: 20.0 },
+  { region: 'Borneo', current: 3200, previous: 2800, change: 14.3 },
+  { region: 'Sumatra', current: 2100, previous: 1900, change: 10.5 },
+  { region: 'Mato Grosso', current: 5200, previous: 3800, change: 36.8 },
+  { region: 'PNG', current: 800, previous: 750, change: 6.7 },
+  { region: 'W. Ghats', current: 1450, previous: 980, change: 48.0 },
+  { region: 'NE India', current: 920, previous: 680, change: 35.3 },
+  { region: 'C. India', current: 1180, previous: 850, change: 38.8 },
+  { region: 'Sundarbans', current: 340, previous: 220, change: 54.5 },
+];
+
+export const predictionData = [
+  { month: 'Apr 2026', predicted: 4200, lower: 3800, upper: 4600 },
+  { month: 'May 2026', predicted: 4800, lower: 4200, upper: 5400 },
+  { month: 'Jun 2026', predicted: 5500, lower: 4700, upper: 6300 },
+  { month: 'Jul 2026', predicted: 6200, lower: 5200, upper: 7200 },
+  { month: 'Aug 2026', predicted: 7000, lower: 5800, upper: 8200 },
+  { month: 'Sep 2026', predicted: 5800, lower: 4800, upper: 6800 },
+];
+
+export const reportTypes = [
+  { id: 'summary', name: 'Executive Summary', description: 'High-level overview of deforestation activity' },
+  { id: 'detailed', name: 'Detailed Analysis', description: 'In-depth analysis with satellite imagery comparison' },
+  { id: 'alert', name: 'Alert Report', description: 'Compilation of alert events and response actions' },
+  { id: 'compliance', name: 'Compliance Report', description: 'Regulatory compliance and protected area status' },
+];
+
+// Synthetic Historical Imagery Dataset (2020–2025)
+// Simulates satellite capture availability per region over time
+export const historicalImageryData = [
+  // 2020
+  { date: '2020-01-15', region: 'amazon', cloudCover: 42, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.82 },
+  { date: '2020-03-08', region: 'amazon', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.84 },
+  { date: '2020-04-22', region: 'congo', cloudCover: 35, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.88 },
+  { date: '2020-05-10', region: 'amazon', cloudCover: 55, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.81 },
+  { date: '2020-06-14', region: 'borneo', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2020-07-20', region: 'amazon', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.80 },
+  { date: '2020-08-05', region: 'sumatra', cloudCover: 40, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.65 },
+  { date: '2020-09-18', region: 'congo', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.87 },
+  { date: '2020-10-30', region: 'amazon', cloudCover: 30, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.79 },
+  { date: '2020-11-12', region: 'mato_grosso', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.70 },
+  { date: '2020-12-25', region: 'amazon', cloudCover: 60, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.78 },
+  // 2021
+  { date: '2021-01-20', region: 'amazon', cloudCover: 38, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.77 },
+  { date: '2021-02-14', region: 'congo', cloudCover: 25, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.86 },
+  { date: '2021-03-10', region: 'borneo', cloudCover: 32, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.70 },
+  { date: '2021-04-05', region: 'amazon', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.76 },
+  { date: '2021-05-18', region: 'sumatra', cloudCover: 45, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.62 },
+  { date: '2021-06-22', region: 'amazon', cloudCover: 15, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.75 },
+  { date: '2021-07-14', region: 'mato_grosso', cloudCover: 10, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.68 },
+  { date: '2021-08-30', region: 'congo', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.85 },
+  { date: '2021-09-12', region: 'amazon', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.74 },
+  { date: '2021-10-08', region: 'papua', cloudCover: 50, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.78 },
+  { date: '2021-11-25', region: 'amazon', cloudCover: 35, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.73 },
+  { date: '2021-12-15', region: 'madagascar', cloudCover: 40, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.38 },
+  // 2022
+  { date: '2022-01-10', region: 'amazon', cloudCover: 30, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2022-02-22', region: 'borneo', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.66 },
+  { date: '2022-03-15', region: 'congo', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.84 },
+  { date: '2022-04-28', region: 'amazon', cloudCover: 25, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.71 },
+  { date: '2022-05-14', region: 'sumatra', cloudCover: 38, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.58 },
+  { date: '2022-06-08', region: 'amazon', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.70 },
+  { date: '2022-07-20', region: 'mato_grosso', cloudCover: 8, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.64 },
+  { date: '2022-08-18', region: 'cameroon', cloudCover: 42, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.55 },
+  { date: '2022-09-05', region: 'amazon', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.69 },
+  { date: '2022-10-12', region: 'congo', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.83 },
+  { date: '2022-11-30', region: 'amazon', cloudCover: 45, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.68 },
+  { date: '2022-12-20', region: 'papua', cloudCover: 55, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.76 },
+  // 2023
+  { date: '2023-01-08', region: 'amazon', cloudCover: 35, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.67 },
+  { date: '2023-02-18', region: 'borneo', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.62 },
+  { date: '2023-03-25', region: 'amazon', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.66 },
+  { date: '2023-04-10', region: 'congo', cloudCover: 30, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.82 },
+  { date: '2023-05-22', region: 'sumatra', cloudCover: 42, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.54 },
+  { date: '2023-06-15', region: 'amazon', cloudCover: 10, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.65 },
+  { date: '2023-07-28', region: 'mato_grosso', cloudCover: 5, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.60 },
+  { date: '2023-08-14', region: 'amazon', cloudCover: 20, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.64 },
+  { date: '2023-09-10', region: 'madagascar', cloudCover: 35, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.32 },
+  { date: '2023-10-05', region: 'amazon', cloudCover: 32, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.63 },
+  { date: '2023-11-18', region: 'cameroon', cloudCover: 38, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.50 },
+  { date: '2023-12-22', region: 'congo', cloudCover: 25, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.81 },
+  // 2024
+  { date: '2024-01-12', region: 'amazon', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.62 },
+  { date: '2024-02-20', region: 'borneo', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.58 },
+  { date: '2024-03-08', region: 'amazon', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.61 },
+  { date: '2024-04-15', region: 'sumatra', cloudCover: 35, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.50 },
+  { date: '2024-05-10', region: 'congo', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.80 },
+  { date: '2024-06-22', region: 'amazon', cloudCover: 8, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.60 },
+  { date: '2024-07-14', region: 'mato_grosso', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.56 },
+  { date: '2024-08-25', region: 'amazon', cloudCover: 30, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.59 },
+  { date: '2024-09-18', region: 'papua', cloudCover: 48, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2024-10-05', region: 'amazon', cloudCover: 25, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.58 },
+  { date: '2024-11-12', region: 'madagascar', cloudCover: 30, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.28 },
+  { date: '2024-12-28', region: 'congo', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.79 },
+  // 2025
+  { date: '2025-01-05', region: 'amazon', cloudCover: 32, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.57 },
+  { date: '2025-02-14', region: 'borneo', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.54 },
+  { date: '2025-03-10', region: 'amazon', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.56 },
+  { date: '2025-04-08', region: 'sumatra', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.46 },
+  { date: '2025-05-20', region: 'congo', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.78 },
+  { date: '2025-06-15', region: 'amazon', cloudCover: 10, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.55 },
+  { date: '2025-07-22', region: 'mato_grosso', cloudCover: 8, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.52 },
+  { date: '2025-08-18', region: 'amazon', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.54 },
+  { date: '2025-09-10', region: 'cameroon', cloudCover: 32, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.45 },
+  { date: '2025-10-05', region: 'amazon', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.53 },
+  { date: '2025-11-15', region: 'congo', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.77 },
+  { date: '2025-12-20', region: 'amazon', cloudCover: 40, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.52 },
+  // India – Western Ghats
+  { date: '2020-02-10', region: 'western_ghats', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.78 },
+  { date: '2020-10-15', region: 'western_ghats', cloudCover: 55, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.75 },
+  { date: '2021-03-22', region: 'western_ghats', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2021-11-08', region: 'western_ghats', cloudCover: 35, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.68 },
+  { date: '2022-04-18', region: 'western_ghats', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.65 },
+  { date: '2022-12-05', region: 'western_ghats', cloudCover: 18, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.60 },
+  { date: '2023-05-14', region: 'western_ghats', cloudCover: 30, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.56 },
+  { date: '2023-11-20', region: 'western_ghats', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.52 },
+  { date: '2024-06-10', region: 'western_ghats', cloudCover: 25, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.48 },
+  { date: '2024-12-18', region: 'western_ghats', cloudCover: 10, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.44 },
+  { date: '2025-03-08', region: 'western_ghats', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.42 },
+  { date: '2025-09-25', region: 'western_ghats', cloudCover: 40, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.38 },
+  // India – Northeast India
+  { date: '2020-04-10', region: 'northeast_india', cloudCover: 45, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.82 },
+  { date: '2021-02-18', region: 'northeast_india', cloudCover: 20, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.80 },
+  { date: '2022-01-22', region: 'northeast_india', cloudCover: 25, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.76 },
+  { date: '2023-03-12', region: 'northeast_india', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2024-05-08', region: 'northeast_india', cloudCover: 32, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.68 },
+  { date: '2025-07-14', region: 'northeast_india', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.65 },
+  // India – Central Indian Forests
+  { date: '2020-06-20', region: 'central_india', cloudCover: 38, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.72 },
+  { date: '2021-08-15', region: 'central_india', cloudCover: 42, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.68 },
+  { date: '2022-10-28', region: 'central_india', cloudCover: 15, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.62 },
+  { date: '2023-12-10', region: 'central_india', cloudCover: 10, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.58 },
+  { date: '2024-04-22', region: 'central_india', cloudCover: 28, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.54 },
+  { date: '2025-06-18', region: 'central_india', cloudCover: 22, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.50 },
+  // India – Sundarbans
+  { date: '2020-08-05', region: 'sundarbans', cloudCover: 60, resolution: '30m', sensor: 'Landsat-8', ndviAvg: 0.68 },
+  { date: '2021-12-10', region: 'sundarbans', cloudCover: 18, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.64 },
+  { date: '2022-06-22', region: 'sundarbans', cloudCover: 50, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.60 },
+  { date: '2023-09-14', region: 'sundarbans', cloudCover: 35, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.55 },
+  { date: '2024-02-28', region: 'sundarbans', cloudCover: 12, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.50 },
+  { date: '2025-05-10', region: 'sundarbans', cloudCover: 25, resolution: '10m', sensor: 'Sentinel-2', ndviAvg: 0.45 },
+];

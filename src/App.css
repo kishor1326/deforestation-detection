@@ -1,0 +1,28 @@
+.app-container {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: var(--navbar-height);
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-normal);
+  min-height: 100vh;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: var(--sidebar-collapsed);
+}
+
+.main-content.full-width {
+  margin-left: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+  .main-content.sidebar-collapsed {
+    margin-left: 0;
+  }
+}

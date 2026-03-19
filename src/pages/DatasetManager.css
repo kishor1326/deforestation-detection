@@ -1,0 +1,241 @@
+.dataset-manager .flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dataset-manager .flex-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: fit-content;
+}
+
+.header-icon {
+  vertical-align: middle;
+  margin-right: 12px;
+  color: var(--color-green-primary);
+}
+
+.add-dataset-card {
+  padding: 24px;
+  margin-bottom: 32px;
+  border-left: 4px solid var(--color-green-primary);
+  animation: slideDown 0.3s ease;
+}
+
+.dataset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+.dataset-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dataset-form label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.dataset-form input,
+.dataset-form select {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.dataset-form input:focus,
+.dataset-form select:focus {
+  border-color: var(--color-green-primary);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dataset-form select option {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.file-drop-zone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.file-drop-zone:hover {
+  border-color: var(--color-green-primary);
+  background: rgba(0, 200, 83, 0.05);
+}
+
+.file-drop-zone p {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.file-drop-zone .file-info {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.error-banner {
+  background: rgba(255, 23, 68, 0.1);
+  border: 1px solid #ff5252;
+  color: #ff5252;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.datasets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.dataset-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dataset-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.dataset-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dataset-title h4 {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.active {
+  background: rgba(0, 200, 83, 0.15);
+  color: #00c853;
+}
+
+.status-badge.inactive {
+  background: rgba(255, 171, 0, 0.15);
+  color: #ffab00;
+}
+
+.dataset-body {
+  flex: 1;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dataset-body p {
+  margin: 0;
+}
+
+.dataset-type {
+  color: var(--color-green-light);
+}
+
+.dataset-date {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  margin-top: auto !important;
+}
+
+.dataset-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: none;
+  border: 1px solid var(--color-border);
+}
+
+.action-btn.toggle {
+  flex: 1;
+  color: var(--color-text-primary);
+}
+
+.action-btn.toggle:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-text-muted);
+}
+
+.action-btn.delete {
+  color: #ff5252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+}
+
+.action-btn.delete:hover {
+  background: rgba(255, 23, 68, 0.1);
+  border-color: #ff5252;
+}
+
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-text-muted);
+}
+
+.empty-state h3 {
+  color: var(--color-text-primary);
+  margin: 16px 0 8px;
+}
+
+.empty-state p {
+  margin-bottom: 24px;
+}

@@ -1,0 +1,354 @@
+/* ========================================
+   Historical Timeline – Google Earth Engine Style
+   ======================================== */
+
+.historical-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: linear-gradient(180deg, #2a2a2e 0%, #232327 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 4px 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 50;
+  min-height: 42px;
+  user-select: none;
+  backdrop-filter: blur(12px);
+}
+
+.historical-timeline.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.historical-timeline.disabled .ht-left-controls {
+  pointer-events: all;
+  opacity: 1;
+}
+
+/* ---- Left Controls ---- */
+.ht-left-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-right: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 8px;
+}
+
+.ht-icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #b0b0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ht-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ht-icon-btn.active,
+.ht-toggle.active {
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.12);
+}
+
+/* ---- Date Section ---- */
+.ht-date-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.ht-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d0d0d8;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.ht-date-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.ht-nav-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #b0b0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.ht-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ht-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.ht-current-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e0e0e8;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.ht-step-btn {
+  margin-left: 2px;
+}
+
+/* ---- Timeline Track ---- */
+.ht-timeline-wrapper {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+  padding: 0 8px;
+}
+
+.ht-timeline-track {
+  position: relative;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.ht-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+
+/* Data point dots */
+.ht-dot {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: #8e8e96;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.ht-dot:hover,
+.ht-dot.hovered {
+  background: #ffffff;
+  transform: translate(-50%, -50%) scale(1.4);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.ht-dot.selected {
+  background: #4fc3f7;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+  z-index: 3;
+}
+
+/* Tooltip on hover */
+.ht-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1e22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.ht-tooltip strong {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.ht-tooltip span {
+  font-size: 10px;
+  color: #a0a0a8;
+}
+
+/* Selected indicator (big blue draggable circle) */
+.ht-selected-indicator {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: #4fc3f7;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  z-index: 10;
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+}
+
+.ht-selected-indicator:hover {
+  box-shadow: 0 0 20px rgba(79, 195, 247, 0.7);
+}
+
+.ht-selected-indicator.dragging {
+  cursor: grabbing;
+  box-shadow: 0 0 24px rgba(79, 195, 247, 0.9);
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.ht-selected-glow {
+  position: absolute;
+  inset: -6px;
+  background: radial-gradient(circle, rgba(79, 195, 247, 0.3), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Highlight band */
+.ht-highlight-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(79, 195, 247, 0.08);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Year labels */
+.ht-year-labels {
+  position: relative;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.ht-year-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 500;
+  color: #707078;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ---- Right Controls ---- */
+.ht-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 6px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 8px;
+}
+
+.ht-close-btn:hover {
+  background: rgba(255, 82, 82, 0.15) !important;
+  color: #ff5252 !important;
+}
+
+/* ---- Capture Info (floating below the bar) ---- */
+.ht-capture-info {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 30, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 4px 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.ht-capture-sensor {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4fc3f7;
+}
+
+.ht-capture-detail {
+  font-size: 10px;
+  color: #a0a0a8;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .historical-timeline {
+    flex-wrap: wrap;
+    border-radius: 14px;
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .ht-timeline-wrapper {
+    order: 3;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .ht-date-section {
+    border-right: none;
+    margin-right: 0;
+  }
+
+  .ht-right-controls {
+    border-left: none;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .ht-label {
+    display: none;
+  }
+}
