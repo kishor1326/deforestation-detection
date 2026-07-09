@@ -243,7 +243,15 @@ textarea:focus {
 }
 
 @media (max-width: 1024px) {
-    .hunting-layout {
-        grid-template-columns: 1fr;
-    }
+    .hunting-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .hunting-layout { gap: var(--space-md); margin-top: var(--space-md); }
+    .console-panel, .results-panel { padding: var(--space-md); min-height: auto; }
+    .analysis-tabs { width: 100%; justify-content: stretch; }
+    .tab-btn { flex: 1; justify-content: center; padding: 10px 8px; font-size: var(--font-size-xs); }
+    .upload-zone { padding: var(--space-lg) var(--space-md); }
+    .scanning-grid { width: 150px; height: 80px; }
+    .btn-analyze { padding: 14px; font-size: var(--font-size-md); min-height: 50px; }
 }

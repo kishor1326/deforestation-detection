@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: var(--navbar-height);
-  background: rgba(10, 15, 13, 0.9);
+  background: rgba(10, 15, 13, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
@@ -26,13 +26,15 @@
   flex-direction: column;
   gap: 4px;
   background: none;
-  padding: 6px;
+  padding: 8px;
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast);
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
 }
-.menu-toggle:hover {
-  background: var(--color-bg-glass);
-}
+.menu-toggle:hover { background: var(--color-bg-glass); }
 .menu-toggle span {
   display: block;
   width: 20px;
@@ -48,10 +50,7 @@
   gap: var(--space-sm);
   text-decoration: none;
 }
-.brand-icon {
-  color: var(--color-green-primary);
-  filter: drop-shadow(0 0 8px var(--color-green-glow));
-}
+.brand-icon { color: var(--color-green-primary); filter: drop-shadow(0 0 8px var(--color-green-glow)); }
 .brand-text {
   font-size: var(--font-size-xl);
   font-weight: 800;
@@ -80,26 +79,10 @@
   width: 100%;
   transition: all var(--transition-normal);
 }
-.search-bar:focus-within {
-  border-color: var(--color-green-primary);
-  box-shadow: 0 0 12px rgba(0, 200, 83, 0.1);
-}
-.search-bar svg {
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-.search-bar input {
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--color-text-primary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  width: 100%;
-}
-.search-bar input::placeholder {
-  color: var(--color-text-muted);
-}
+.search-bar:focus-within { border-color: var(--color-green-primary); box-shadow: 0 0 12px rgba(0,200,83,0.1); }
+.search-bar svg { color: var(--color-text-muted); flex-shrink: 0; }
+.search-bar input { background: none; border: none; outline: none; color: var(--color-text-primary); font-family: var(--font-family); font-size: var(--font-size-sm); width: 100%; }
+.search-bar input::placeholder { color: var(--color-text-muted); }
 
 .navbar-right {
   display: flex;
@@ -119,10 +102,7 @@
   justify-content: center;
   transition: all var(--transition-fast);
 }
-.nav-icon-btn:hover {
-  background: var(--color-bg-glass);
-  color: var(--color-green-primary);
-}
+.nav-icon-btn:hover { background: var(--color-bg-glass); color: var(--color-green-primary); }
 
 .notification-badge {
   position: absolute;
@@ -158,40 +138,19 @@
   align-items: center;
   justify-content: center;
   color: white;
+  flex-shrink: 0;
 }
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.profile-name {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text-primary);
-  line-height: 1.2;
-}
-.logout-btn {
-  background: none;
-  border: none;
-  color: var(--color-text-muted);
-  font-size: 10px;
-  text-align: left;
-  padding: 0;
-  margin-top: 2px;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.logout-btn:hover {
-  color: #ff5252;
-  text-decoration: underline;
-}
+.profile-info { display: flex; flex-direction: column; justify-content: center; }
+.profile-name { font-size: var(--font-size-sm); font-weight: 500; color: var(--color-text-primary); line-height: 1.2; }
 
-.navbar-right .nav-icon-btn:first-child {
-  display: none;
-}
+/* Desktop: hide the search icon button (search bar is visible) */
+.navbar-right .nav-icon-btn:first-child { display: none; }
 
+/* ── Mobile Navbar ────────────────────────────── */
 @media (max-width: 768px) {
+  .navbar { padding: 0 var(--space-md); }
   .navbar-center { display: none; }
   .navbar-right .nav-icon-btn:first-child { display: flex; }
   .profile-info { display: none; }
+  .brand-text { font-size: var(--font-size-lg); }
 }
