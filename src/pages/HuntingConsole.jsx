@@ -4,6 +4,8 @@ import { regions } from '../data/mockData';
 import AlertBadge from '../components/AlertBadge';
 import './HuntingConsole.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 export default function HuntingConsole() {
     const [activeTab, setActiveTab] = useState('acoustic');
     const [file, setFile] = useState(null);
@@ -24,7 +26,7 @@ export default function HuntingConsole() {
                 log_text: logText
             };
 
-            const response = await fetch('http://localhost:8000/api/analyze-hunting/text', {
+            const response = await fetch(`${API_BASE_URL}/api/analyze-hunting/text`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -56,7 +58,7 @@ export default function HuntingConsole() {
         formData.append('region', region);
 
         try {
-            const response = await fetch('http://localhost:8000/api/analyze-hunting/image', {
+            const response = await fetch(`${API_BASE_URL}/api/analyze-hunting/image`, {
                 method: 'POST',
                 body: formData
             });
