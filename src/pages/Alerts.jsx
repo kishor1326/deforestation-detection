@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AlertTriangle, Search, Filter, MapPin, Clock, ChevronUp, ExternalLink, Shield } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 import AlertBadge from '../components/AlertBadge';
 import { alerts } from '../data/mockData';
 import './Alerts.css';
@@ -21,9 +22,26 @@ const formatTime = (ts) => {
 };
 
 export default function Alerts() {
-    const [search, setSearch] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('q') || '';
+    
+    const [search, setSearch] = useState(query);
     const [severityFilter, setSeverityFilter] = useState('all');
     const [expanded, setExpanded] = useState(null);
+
+    // Sync state with URL search query changes
+    useEffect(() => {
+        setSearch(query);
+    }, [query]);
+
+    const handleSearchChange = (value) => {
+        setSearch(value);
+        if (value) {
+            setSearchParams({ q: value });
+        } else {
+            setSearchParams({});
+        }
+    };
 
     const filtered = alerts.filter(a => {
         const matchSearch = a.region.toLowerCase().includes(search.toLowerCase()) || a.id.toLowerCase().includes(search.toLowerCase());
@@ -79,7 +97,7 @@ export default function Alerts() {
                         type="text"
                         placeholder="Search alerts by region or ID..."
                         value={search}
-                        onChange={e => setSearch(e.target.value)}
+                        onChange={e => handleSearchChange(e.target.value)}
                     />
                 </div>
                 <div className="filter-group">
