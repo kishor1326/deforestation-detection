@@ -14,20 +14,21 @@ const navItems = [
   { path: '/datasets', icon: Database, label: 'Datasets' }
 ];
 
-export default function Sidebar({ collapsed, onToggle }) {
+export default function Sidebar({ collapsed, onToggle, onLinkClick }) {
   const location = useLocation();
   const isLanding = location.pathname === '/';
 
   if (isLanding) return null;
 
   return (
-    <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+    <aside className={`sidebar ${collapsed ? 'collapsed' : 'open'}`}>
       <div className="sidebar-nav">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            onClick={onLinkClick}
           >
             <item.icon size={20} className="sidebar-icon" />
             <span className="sidebar-label">{item.label}</span>

@@ -14,15 +14,28 @@ import DatasetManager from './pages/DatasetManager';
 import './App.css';
 
 function AppLayout() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => window.innerWidth <= 768);
   const location = useLocation();
   const isLanding = location.pathname === '/';
   const isGlobalMap = location.pathname === '/global';
 
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      setSidebarCollapsed(true);
+    }
+  };
+
   return (
     <div className={`app-container ${isLanding ? 'landing-layout' : 'dashboard-layout'}`}>
       <Navbar onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
-      <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
+      <Sidebar 
+        collapsed={sidebarCollapsed} 
+        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
+        onLinkClick={handleLinkClick}
+      />
+      {!sidebarCollapsed && (
+        <div className="mobile-sidebar-backdrop" onClick={() => setSidebarCollapsed(true)} />
+      )}
       <main className={`main-content ${(isLanding || isGlobalMap) ? 'full-width' : ''} ${sidebarCollapsed ? 'sidebar-collapsed' : ''} ${isGlobalMap ? 'map-active' : ''}`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
