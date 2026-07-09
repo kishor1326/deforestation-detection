@@ -1,6 +1,6 @@
 .global-map-container {
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
+    height: 100%;
     position: relative;
     overflow: hidden;
     background-color: var(--color-bg-primary);
@@ -169,4 +169,30 @@
 /* Fullscreen adjustments for main content area when on global map */
 main.main-content.map-active {
     padding: 0;
+    padding-top: var(--navbar-height);
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .global-map-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 14px;
+    }
+    
+    .global-map-header h1 {
+        font-size: 1.1rem;
+        gap: 8px;
+    }
+    
+    .global-map-legend {
+        gap: 12px;
+        padding: 4px 10px;
+    }
+    
+    .legend-item {
+        font-size: 0.75rem;
+    }
 }
