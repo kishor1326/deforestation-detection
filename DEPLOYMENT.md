@@ -56,7 +56,7 @@ Since your project already has a `.gitignore` configured to ignore large ML mode
    * **Build and Output Settings**: Leave as default (`npm run build` and `dist`)
 4. Expand the **Environment Variables** section and add:
    * **`VITE_API_BASE_URL`**: Your Render backend URL (e.g., `https://forestguard-backend.onrender.com`)
-   * **`VITE_GOOGLE_MAPS_API_KEY`**: Your Google Maps API Key (`AIzaSyBG9PtpyzdB_c5VABsdTSnT_DmhE7TQbCQ` or your new working key)
+   * **`VITE_GOOGLE_MAPS_API_KEY`**: Your Google Maps API Key (Paste your API key here)
 5. Click **Deploy**.
 6. Once deployed, Vercel will give you a public domain (e.g., `https://deforestation-detection-system.vercel.app`).
 
