@@ -1,6 +1,7 @@
 import time
 import random
 import httpx
+from pathlib import Path
 from fastapi import FastAPI, File, UploadFile, Form, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -27,7 +28,9 @@ class SensorData(BaseModel):
 # -----------------------------------------------------------------------------
 # LLM Inference Engine (Integrating Trained Model)
 # -----------------------------------------------------------------------------
-MODEL_PATH = "./models/hunting_llm_final"
+# Use absolute path relative to this file so the model loads correctly
+# regardless of which directory the server is started from.
+MODEL_PATH = str(Path(__file__).parent / "models" / "hunting_llm_final")
 try:
     print(f"Loading Hunting LLM from {MODEL_PATH}...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
